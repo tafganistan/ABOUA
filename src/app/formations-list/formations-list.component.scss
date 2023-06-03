@@ -213,6 +213,7 @@
     width: 84%;
     height: 120px;
     margin-top: -1vh;
+    z-index: 40;
     .swiper-slide{
         @include centered;
             .module-bloc {
@@ -239,6 +240,33 @@
         border-radius: 100%;
         &::after, &::after{
             font-size: 10px!important ;
+        }
+    }
+}
+
+//
+.container-popup-cours-view {
+    z-index: 50;
+    background: linear-gradient(190deg, rgba(0, 23, 46, .2), #00172E);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $full-percent;
+    height: $full-vh;
+    @include centered;
+    display: none;
+    .datas-popup {
+        width: 60%;
+        height: 60vh;
+        padding: 20px;
+        padding-bottom: 0px;
+        border-radius: 5px;
+        color: $white;
+        cursor: pointer;
+        .bi-x-circle {
+            position: absolute;
+            right: -8px;
+            top: -15px;
         }
     }
 }
@@ -317,8 +345,16 @@
     /* COURSES BLOC */
     .courses-bloc {
         .courses-bloc-row {
-            width: $full-percent;
-            margin-left: 0%;
+            width: 90%;
+            margin-left: 4%;
+        }
+    }
+
+    .container-popup-cours-view {
+        .datas-popup {
+            width: 80%;
+            height: 80vh;
+            padding-top: 15vh;
         }
     }
 }
@@ -335,13 +371,25 @@
             margin: 0;
         }
     }
+
+    .swiper{
+        width: 95%;
+        background: red;
+    }
+
+    .container-popup-cours-view {
+        .datas-popup {
+            width: 95%;
+            height: 95vh;
+            padding-top: 25vh;
+        }
+    }
+
 }
 
 
 /*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 768PX) ------------------------------------------------------------/*/
-@media screen and (max-width: 768px) {
-
-}
+@media screen and (max-width: 768px) {}
 
 /*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 576PX) ------------------------------------------------------------/*/
 @media screen and (max-width: 576px) {}

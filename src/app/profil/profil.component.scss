@@ -265,16 +265,22 @@
         width: $full-percent;
         display: none;
         .serviceBox {
-            .btn-auth {
-                border-radius: 20px;
-                color: $white;
-                margin-top: 2vh;
-                border: 1px solid $white;
-                background: #336699f9;
-                color: $white;
-                a {
-                    text-decoration: none;
-                    color: $whiteTwo;
+            .input-group{
+                width: $full-percent;
+                .row {
+                    width: $full-percent;
+                    .btn-auth {
+                        border-radius: 20px;
+                        color: $white;
+                        margin-top: 2vh;
+                        border: 1px solid $white;
+                        background: #336699f9;
+                        color: $white;
+                        a {
+                            text-decoration: none;
+                            color: $whiteTwo;
+                        }
+                    }
                 }
             }
         }
@@ -397,4 +403,62 @@
         top: 25vh;
         right: 0;
     }
+}
+
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 1200PX) -----------------------------------------------------------/*/
+@media screen and (max-width: 1200px) {
+
+    /*CONTAINER PROFIL*/
+    .container-profil {
+        width: 95%;
+        margin-left: 2.5%;
+        .container-profil-row_items {
+            .swiper{
+                width: 90%;
+            }
+        }
+    }
+
+    /*CONTAINER VIEW*/
+    .container-view {
+        width: 95%;
+        margin-left: 2.5%;
+        &-row {
+            .serviceBoxContainer {
+                width: 40%;
+            }
+        }
+    }
+
+}
+
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 992PX) ------------------------------------------------------------/*/
+@media screen and (max-width: 992px) {
+    /*CONTAINER PROFIL*/
+    .container-profil {
+        width: 98%;
+        margin-left: 1%;
+        .container-profil-row_items {
+            .swiper{
+                width: 95%;
+            }
+        }
+    }
+
+    /*CONTAINER VIEW*/
+    .container-view {
+        &-row {
+            .serviceBoxContainer {
+                width: 65%;
+            }
+        }
+    }
+}
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 768PX) ------------------------------------------------------------/*/
+@media screen and (max-width: 768px) {
+    /* CONTAINER PROFIL*/
+    .container-profil {}
 }

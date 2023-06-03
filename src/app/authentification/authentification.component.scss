@@ -89,7 +89,25 @@
         }
         p {
             font-size: $size-normal;
-            margin-bottom: 10vh;
+            margin-bottom: 7vh;
+        }
+
+        .recov-mdp{
+            font-size: $size-small;
+            a {
+                color: $white;
+            }
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        form {
+            padding: 0;
+            margin: 0;
+            width: $full-percent;
+            @include centered;
         }
 
         .input-group {

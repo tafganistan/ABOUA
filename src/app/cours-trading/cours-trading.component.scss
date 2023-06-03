@@ -188,16 +188,15 @@
             margin-right: 10px;
             background: none;
             transition: all .3s ease;
-            width: 255px;
+            width: 230px;
             height: 45px;
             border-radius: 15px;
             display: inline-block;
             padding: 14px 28px 13px 28px;
             line-height: 1;
             border: 2px solid $black;
-            font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: $black;
@@ -296,17 +295,17 @@ margin-top: 5vh;
 
             .row {
                 width: $full-percent;
-                .col-4:nth-child(1) {
+                .col-2:nth-child(1) {
                     text-align: start;
                     svg {
                         margin-top: -3px;
                         color: #336699;
                     }
                 }
-                .col-4:nth-child(2) {
-                    text-align: end;
+                .col-8:nth-child(2) {
+                    text-align: center;
                 }
-                .col-4:nth-child(3) {
+                .col-2:nth-child(3) {
                     text-align: end;
                 }
             }
@@ -387,6 +386,10 @@ margin-top: 5vh;
             margin-left: 0%;
             margin: 0;
         }
+    }
+
+    .swiper{
+        width: 95%;
     }
 }
 

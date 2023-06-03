@@ -1,0 +1,227 @@
+@import "../partials/utils/variables";
+
+.container-fluid {
+    width: $full-percent;
+    height: $full-vh;
+    @include centered;
+    padding: 0;
+    overflow: hidden;
+    .row-cont {
+        margin: 0;
+        width: $full-percent;
+        height: $full-percent;
+        background: #00172E;
+        background: #336699f9;
+        img {
+            width: 180px;
+            height: 180px;
+            border-radius: $full-percent;
+            padding: 20px;
+            border: 1px solid $whiteTwo;
+            cursor: pointer;
+            margin-bottom: 5vh;
+        }
+        .forms-bloc {
+            @include centered;
+            margin: 0;
+            padding: 0;
+            color: $whiteTwo;
+            .row {
+                width: $full-percent;
+                margin: 0;
+                padding: 0;
+                @include centered;
+                h2 {
+                    margin-top: 3vh;
+                }
+                .p {
+                    font-size: 18px;
+                    margin-top: 5vh;
+                    font-family: $family-bold;
+                }
+            }
+        }
+        .background-img {
+            background-image: linear-gradient(180deg, rgba(0, 23, 46, .5), #336699), url("../../assets/images/istoc.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            @include centered;
+            .row {
+                width: 90%;
+                padding: 0;
+                margin: 0;
+                @include centered;
+                text-align: center;
+                color: $whiteTwo;
+                height: 40vh;
+                img {
+                    width: 190px;
+                    border-radius: $full-percent;
+                    padding: 25px;
+                    border: 1px solid $whiteTwo;
+                    cursor: pointer
+                }
+            }
+        }
+    }
+}
+
+.form-block {
+    width: $full-percent;
+    height: $full-percent;
+    padding: 0;
+    margin: 0;
+    @include centered;
+    .row {
+        width: $full-percent;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        h2 {
+            margin-bottom: 2vh;
+            font-weight: $bold;
+            font-size: $size-great;
+            padding-top: 5vh;
+        }
+        p {
+            font-size: $size-normal;
+            margin-bottom: 17vh;
+        }
+        form {
+            padding: 0;
+            margin: 0;
+            width: $full-percent;
+            @include centered;
+        }
+        .input-group, .form-select {
+            width: 70%;
+            @include centered;
+            input {
+                background: transparent;
+                height: 50px;
+                outline: 1px solid $whiteTwo;
+                width: 80%;
+                color: $whiteTwo;
+                text-align: center;
+                margin-top: 1vh;
+            }
+            &:focus {
+                outline: 0 !important;
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $whiteTwo;
+                opacity: 1; /* Firefox */
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $whiteTwo;
+            }
+
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: $whiteTwo;
+            }
+            .btn-auth {
+                width: 250px;
+                border-radius: 20px;
+                color: $white;
+                height: 55px;
+                margin-top: 5vh;
+                border: 1px solid $white;
+                background: #336699f9;
+                color: $white;
+                font-weight: $bold;
+                a {
+                    text-decoration: none;
+                    color: $whiteTwo;
+                }
+            }
+        }
+
+    }
+}
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 1200PX) -----------------------------------------------------------/*/
+@media screen and (max-width: 1200px) {
+    .container-fluid {
+        .row-cont {
+            .forms-bloc {
+                .row {
+                    h2 {
+                        font-size: 2.5rem;
+                    }
+                    .p {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 992PX) ------------------------------------------------------------/*/
+@media screen and (max-width: 992px) {
+    .container-fluid {
+        .row-cont {
+            .forms-bloc {
+                height: 60vh;
+                .row {
+                    h2 {
+                        font-size: 2rem;
+                        margin-top: 0;
+                    }
+                    p,.p {
+                        font-size: 0.8rem;
+                        margin-top: 0;
+                    }
+                }
+            }
+            .background-img {
+                height: 40vh;
+                background-image: linear-gradient(180deg, rgba(0, 23, 46, .5), #336699), url("../../assets/images/istoc\ copie.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                @include centered;
+                .row {
+                    img {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+
+    .form-block {
+        .row {
+            h2 {
+                margin-bottom: 2vh;
+                padding-top: 0vh;
+            }
+            p {
+                margin-bottom: 3vh;
+            }
+
+            .input-group {
+                .btn-auth {
+                    margin-top: 2vh;
+                }
+            }
+
+        }
+    }
+
+    .inscription-bloc {
+        .titreInscription {
+            margin-top: 0vh;
+        }
+    }
+}
+
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 768PX) ------------------------------------------------------------/*/
+@media screen and (max-width: 768px) {
+
+}
+
+/*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 576PX) ------------------------------------------------------------/*/
+@media screen and (max-width: 576px) {}

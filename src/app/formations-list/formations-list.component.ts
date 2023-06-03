@@ -103,6 +103,23 @@ export class FormationsListComponent implements OnInit {
         $(".container-session").fadeOut(200);
       });
 
+      //APERÇU DES VIDEOS
+      $(".views-1").click(function() {
+        $(".view-1").css("display", "flex");
+        $(".view-1").fadeIn(200);
+      });
+      $(".views-2").click(function() {
+        $(".view-2").css("display", "flex");
+        $(".view-2").fadeIn(200);
+      });
+      $(".views-3").click(function() {
+        $(".view-3").css("display", "flex");
+        $(".view-3").fadeIn(200);
+      });
+      $(".close-view").click(function() {
+        $(".container-popup-cours-view").fadeOut(200);
+      });
+
     });
   }
 }

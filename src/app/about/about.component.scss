@@ -26,13 +26,13 @@
                 cursor: pointer
             }
             h1 {
-                font-size: $size-great;
                 color: $whiteTwo;
                 font-weight: $bold;
                 margin-top: 6vh;
             }
             p {
                 font-size: 20px;
+                width: 80%;
                 margin-top: 5vh;
             }
             button {
@@ -48,19 +48,13 @@
     }
 
     .swiper-slide:nth-child(1) {
-        background-image: linear-gradient(360deg, rgba(51, 102, 153, 3), #336699a2), url("../../assets/images/istook.jpg");
+        background-image: linear-gradient(360deg, rgba(51, 102, 153, 1), #336699a2), url("../../assets/images/istook.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .swiper-slide:nth-child(2) {
-        background-image: linear-gradient(360deg, rgba(51, 102, 153, 3), #336699a2), url("../../assets/images/istc.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .swiper-slide:nth-child(3) {
-        background-image: linear-gradient(360deg, rgba(51, 102, 153, 3), #336699a2), url("../../assets/images/istockphoto-1366146199-612x612.jpg");
+        background-image: linear-gradient(360deg, rgba(51, 102, 153, 1), #336699a2), url("../../assets/images/istockphoto-1366146199-612x612.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }

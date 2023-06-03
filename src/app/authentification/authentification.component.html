@@ -11,40 +11,62 @@
                     <div class="row">
                         <h2> Heureux de vous revoir </h2>
                         <p> Entrez vos accès pour vous connecter </p>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Numero de téléphone" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Mot de passe" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <button class="btn btn-auth" routerLink="profil"> Connexion au compte </button>
-                        </div>
-
+                        <form class="row needs-validation">
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Numero de téléphone" id="validationTooltip01" required/>
+                                <div class="invalid-tooltip">
+                                    Veuillez entrer un email valide
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Mot de passe" id="validationTooltip02" required/>
+                                <div class="invalid-tooltip">
+                                    Veuillez entrer un numero valide
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-auth" type="submit"> Connexion au compte </button>
+                            </div>
+                        </form>
                         <p class="p"> Veuillez <span class="btn-creation">Créer Un Compte</span> pour avoir accès aux formations </p>
+                        <p class="recov-mdp"> <a href="recovery" target="_blank">Mot de passe oublié ?</a> </p>
                     </div>
                 </div>
 
                 <!-- INSCRIPTTION BLOC -->
                 <div class="form-block inscription-bloc col-12 animate__animated animate__fadeIn">
                     <div class="row">
-                        <h2 class="titreInscription"> Bienvenue Tr'aide Learning </h2>
-                        <p> Entrer vos information pour créer un compte </p>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nom complet" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Numéro de téléphone" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Mot de passe" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Confirmation" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <button class="btn btn-auth" routerLink="/home"> Création de compte </button>
-                        </div>
+                        <h2 class="titreInscription"> Bienvenue ! </h2>
+                        <p> Entrer vos informations pour créer un compte </p>
+                        <form class="row needs-validation">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Nom complet" id="validationTooltip03" required/>
+                                <div class="invalid-tooltip">
+                                    Veuillez entrer un nom valide
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Numéro de téléphone" id="validationTooltip04" required/>
+                                <div class="invalid-tooltip">
+                                    Veuillez entrer un numero valide
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Mot de passe" id="validationTooltip05" required/>
+                                <div class="invalid-tooltip">
+                                    Veuillez entrer un mot de passe valide
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Confirmation" id="validationTooltip06" required/>
+                                <div class="invalid-tooltip">
+                                    Mot de passe non conforme
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-auth" routerLink="/more" type="submit"> Création de compte </button>
+                            </div>
+                        </form>
 
                         <p class="p"> Déjà un compte ? <span class="btn-connexion">Connectez vous</span> </p>
                     </div>
