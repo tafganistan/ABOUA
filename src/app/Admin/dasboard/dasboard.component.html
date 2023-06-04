@@ -4,6 +4,7 @@
         <!-- LEFT BLOC (LEFT MENU) -->
         <div class="container-fluid-row_bloc container-fluid-row_left container-fluid-row_left--large">
             <div class="row">
+                <img src="../../assets/icons/LogoBlue.png" alt="logo">
                 <button class="btn actvd"><a href="boards/home">Dashboard</a></button>
                 <button class="btn"><a href="boards/courses">Edit Modules</a></button>
                 <button class="btn"><a href="boards/class">Class</a></button>
@@ -54,6 +55,7 @@
                 <div class="col-lg-12 profil-datas-bloc">
                     <div class="row datas-container">
                         <swiper [slidesPerView]="3" [spaceBetween]="10" [navigation]="true" [scrollbar]="{ draggable: true }">
+                            <!-- NOMBRE TOTAL D'UTILISATEURS INSCRIS -->
                             <ng-template swiperSlide class="animate__animated animate__fadeIn">
                                 <div class="row">
                                     <p>
@@ -61,13 +63,7 @@
                                     </p>
                                 </div>
                             </ng-template>
-                            <ng-template swiperSlide class="animate__animated animate__fadeIn">
-                                <div class="row">
-                                    <p>
-                                        <span>0</span> <br>  CONNECTED STUDENTS
-                                    </p>
-                                </div>
-                            </ng-template>
+                            <!-- NOMBRE TOTAL D'UTILISATEURS CONNECTÉS -->
                             <ng-template swiperSlide class="pair-slide animate__animated animate__fadeIn">
                                 <div class="row">
                                     <p>
@@ -75,6 +71,7 @@
                                     </p>
                                 </div>
                             </ng-template>
+                            <!-- NOMBRE TOTAL D'UTILISATEURS EN COURS DE FORMATION -->
                             <ng-template swiperSlide class="animate__animated animate__fadeIn">
                                 <div class="row">
                                     <p>
@@ -82,6 +79,15 @@
                                     </p>
                                 </div>
                             </ng-template>
+                            <!-- NOMBRE TOTAL D'UTILISATEURS CONNECTÉS AYANT PAYÉS LA FORMATION -->
+                            <ng-template swiperSlide class="animate__animated animate__fadeIn">
+                                <div class="row">
+                                    <p>
+                                        <span>0</span> <br>  CONNECTED STUDENTS
+                                    </p>
+                                </div>
+                            </ng-template>
+                            <!-- NOMBRE TOTAL D'UTILISATEURS DÉJÀ CERTIFIÉS -->
                             <ng-template swiperSlide class="pair-slide animate__animated animate__fadeIn">
                                 <div class="row">
                                     <p>

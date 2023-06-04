@@ -71,6 +71,30 @@ export class ProfilComponent implements OnInit {
         $(".container-view-row-forums").css("display", "none");
         $(".container-view-row-mes-cours").css("display", "none");
       });
+
+      //POPUP MODIFICATION INPUT
+      $(".btn-edit").click(function() {
+        $(".cont-confirmation-popup").css("display", "flex");
+        $(".request-bloc").css("display", "block");
+        $(".success-message").css("display", "none");
+      });
+      $(".btn-accept").click(function() {
+        $(".btn-accept").css("display", "none");
+        $(".success-message").css("display", "block");
+      });
+      $(".close-popup-edit").click(function() {
+        $(".cont-confirmation-popup").css("display", "");
+        $(".btn-accept").css("display", "");
+        $(".success-message").css("display", "");
+      });
+
+      //POPUP NOTIFICATIONS
+      $(".div-notifs").click(function() {
+        $(".cont-notifications-popup").css("display", "flex");
+      });
+      $(".cont-notifications-popup").click(function() {
+        $(".cont-notifications-popup").css("display", "none");
+      });
     })
   }
 

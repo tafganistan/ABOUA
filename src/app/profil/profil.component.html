@@ -41,11 +41,11 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <img src="../../assets/images/RS-paul.jpg" alt="illustration">
+                            <img src="../../assets/images/avatar.png" alt="illustration">
                         </div>
                         <div class="col-3 div div-notifs">
                             <div class="row">
-                                <h6>0</h6>
+                                <h6>3</h6>
                                 <p> Notification(s) </p>
                             </div>
                         </div>
@@ -53,7 +53,6 @@
                 </div>
                 <div class="col-12 container-profil-row_white">
                     <h3> Prenoms + Nom </h3>
-                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting </p>
                 </div>
                 <div class="col-12 container-profil-row_items">
                     <swiper [slidesPerView]="3" [spaceBetween]="10" [navigation]="true" class="animate__animated animate__fadeIn">
@@ -75,6 +74,8 @@
         <div class="container container-view">
             <!-- CONTAINER VIEW MES COURS -->
             <div class="container-view-row container-view-row-mes-cours row">
+
+                <!-- COURS DE TRADING À AFFICHER SI LA FORMATION EST ACHETÉE -->
                 <div class="col-lg-3 col-md-12 serviceBoxContainer">
                     <a href="trading/cours">
                         <div class="serviceBox">
@@ -89,6 +90,7 @@
                     </a>
                 </div>
 
+                <!-- COURS DE COACHING À AFFICHER SI LA FORMATION EST ACHETÉE -->
                 <div class="col-lg-3 col-md-12 serviceBoxContainer">
                     <div class="serviceBox">
                         <h5> <span class="serviceNumberTitile">02</span> Coaching </h5>
@@ -100,9 +102,13 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- MESSAGE À AFFICHER SI LA FORMATION N'EST PAS ACHETÉE -->
+                <p> Vous n'avez aucune formation <a href="formations"> ( veuillez acheter une formation ) </a> </p>
             </div>
             <!-- CONTAINER VIEW LES FORUMS -->
             <div class="container-view-row container-view-row-forums row">
+                <!-- LISTE DES FORUMS À AFFICHER SI LA FORMATION EST ACHETÉE -->
                 <swiper [slidesPerView]="2" [spaceBetween]="10" [navigation]="true">
                     <ng-template swiperSlide>
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
@@ -153,53 +159,72 @@
                         </div>
                     </ng-template>
                 </swiper>
+                <!-- MESSAGE À AFFICHER SI LA FORMATION N'EST PAS ACHETÉE -->
+                <p> Vous ne pouvez pas accéder aux forums <a href="formations"> ( veuillez acheter une formation ) </a> </p>
             </div>
             <!-- CONTAINER VIEW PARAMÈTRES -->
             <div class="container-view-row container-view-row-parametres row">
                 <swiper [slidesPerView]="2" [spaceBetween]="10" [navigation]="true">
+                    <!-- MODIFIER LE NOM -->
                     <ng-template swiperSlide>
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
                                         <div class="row">
-                                            <input type="text" class="form-control" placeholder="Nom complet" aria-label="Username" aria-describedby="basic-addon1">
-                                            <button class="btn btn-auth"> Modifier </button>
+                                            <input type="text" class="form-control" placeholder="Nom complet">
+                                            <button class="btn btn-edit"> Modifier </button>
                                         </div>
                                     </div>
                                 </div>
                         </div>
                     </ng-template>
+                    <!-- MODIFIER LE NUMERO -->
                     <ng-template swiperSlide>
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
                                         <div class="row">
-                                            <input type="text" class="form-control" placeholder="Numéro de téléphone" aria-label="Username" aria-describedby="basic-addon1">
-                                            <button class="btn btn-auth"> Modifier </button>
+                                            <input type="number" class="form-control" placeholder="Numéro de téléphone">
+                                            <button class="btn btn-edit"> Modifier </button>
                                         </div>
                                     </div>
                                 </div>
                         </div>
                     </ng-template>
+                    <!-- MODIFIER LE MOT PASSE -->
                     <ng-template swiperSlide>
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
                                         <div class="row">
-                                            <input type="text" class="form-control" placeholder="Nouveau mot de passe" aria-label="Username" aria-describedby="basic-addon1">
-                                            <button class="btn btn-auth"> Modifier </button>
+                                            <input type="password" class="form-control" placeholder="Nouveau mot de passe">
+                                            <button class="btn btn-edit"> Modifier </button>
                                         </div>
                                     </div>
                                 </div>
                         </div>
                     </ng-template>
+                    <!-- CONFIRMATION DU MOT DE PASSE -->
                     <ng-template swiperSlide>
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
                                         <div class="row">
-                                            <input type="text" class="form-control" placeholder="Confirmation" aria-label="Username" aria-describedby="basic-addon1">
-                                            <button class="btn btn-auth"> Modifier </button>
+                                            <input type="password" class="form-control" placeholder="Confirmation">
+                                            <button class="btn btn-edit"> Modifier </button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </ng-template>
+                    <!-- MODIFIER LA PHOTO DE PROFIL -->
+                    <ng-template swiperSlide>
+                        <div class="col-lg-3 col-md-12 serviceBoxContainer">
+                                <div class="serviceBox">
+                                    <div class="input-group mb-3">
+                                        <div class="row">
+                                            <input class="form-control form-control-lg" id="formFileLg" type="file"/>
+                                            <button class="btn btn-edit" type="submit"> Modifier la photo de profil </button>
                                         </div>
                                     </div>
                                 </div>
@@ -244,5 +269,43 @@
                 </svg>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- POPUP CONFIRMATION DE MODIFICATION -->
+<div class="cont-popup cont-notifications-popup animate__animated">
+    <div class="datas-popup animate__animated animate__zoomIn">
+        <div class="request-bloc">
+            <h3> Notifications </h3>
+        </div>
+        <p class="notifs-bloc">
+            <a href="">Nouveau coaching programmé</a>
+        </p>
+        <p class="notifs-bloc">
+            <a href="">Vous avez reçu un screenshot</a>
+        </p>
+        <p class="notifs-bloc">
+            <a href="">Passer au cours suivant</a>
+        </p>
+    </div>
+</div>
+
+<!-- POPUP CONFIRMATION DE MODIFICATION -->
+<div class="cont-popup cont-confirmation-popup animate__animated">
+    <div class="datas-popup animate__animated animate__zoomIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-x-circle close-popup-edit" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+        <div class="request-bloc">
+            <h3> Voulez-vous effectué la modification ? </h3>
+            <button class="btn btn-accept"> Oui </button>
+        </div>
+        <p class="success-message">
+            Modification effectuée avec succès
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+        </p>
     </div>
 </div>
