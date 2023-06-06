@@ -11,21 +11,29 @@
                     <div class="row">
                         <h2> Heureux de vous revoir </h2>
                         <p> Entrez vos accès pour vous connecter </p>
-                        <form class="row needs-validation">
+                        <form class="row needs-validation" [formGroup]="signinForm" (ngSubmit)="submitsigninForm()">
                             <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="Numero de téléphone" id="validationTooltip01" required/>
+                                <input type="number" class="form-control" placeholder="Numero de téléphone" id="validationTooltip01" required
+                                formControlName="telephone" 
+                                name="telephone" 
+                                [ngClass]="{ 'is-invalid': submitted_signin && f_signin['telephone'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Veuillez entrer un email valide
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Mot de passe" id="validationTooltip02" required/>
+                                <input type="password" class="form-control" placeholder="Mot de passe" id="validationTooltip02" required
+                                formControlName="password"
+                                name="password"
+                                [ngClass]="{ 'is-invalid': submitted_signin && f_signin['password'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Veuillez entrer un numero valide
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <button class="btn btn-auth" routerLink="/profil" type="submit"> Connexion au compte </button>
+                                <button class="btn btn-auth" type="submit"> Connexion au compte </button>
                             </div>
                         </form>
                         <p class="p"> Veuillez <span class="btn-creation">Créer Un Compte</span> pour avoir accès aux formations </p>
@@ -38,33 +46,53 @@
                     <div class="row">
                         <h2 class="titreInscription"> Bienvenue ! </h2>
                         <p> Entrer vos informations pour créer un compte </p>
-                        <form class="row needs-validation">
+                        <form class="row needs-validation" [formGroup]="registerForm" (ngSubmit)="submitregisterForm()">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nom complet" id="validationTooltip03" required/>
+                                <input type="text" class="form-control" placeholder="Nom complet" id="validationTooltip03" required
+                                formControlName="nom_complet" 
+                                name="nom_complet" 
+                                maxlength="50"
+                                [ngClass]="{ 'is-invalid': submitted_register && f_register['nom_complet'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Veuillez entrer un nom valide
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="Numéro de téléphone" id="validationTooltip04" required/>
+                                <input type="text" class="form-control" placeholder="Numéro de téléphone" id="validationTooltip04" required
+                                formControlName="telephone" 
+                                name="telephone" 
+                                minlength="10"
+                                [ngClass]="{ 'is-invalid': submitted_register && f_register['telephone'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Veuillez entrer un numero valide
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Mot de passe" id="validationTooltip05" required/>
+                                <input type="password" class="form-control" placeholder="Mot de passe" id="validationTooltip05" required
+                                formControlName="password" 
+                                name="password" 
+                                minlength="6"
+                                [ngClass]="{ 'is-invalid': submitted_register && f_register['password'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Veuillez entrer un mot de passe valide
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Confirmation" id="validationTooltip06" required/>
+                                <input type="password" class="form-control" placeholder="Confirmation" id="validationTooltip06" required
+                                formControlName="password_confirmation" 
+                                name="password_confirmation" 
+                                minlength="6"
+                                [ngClass]="{ 'is-invalid': submitted_register && f_register['password_confirmation'].errors }"
+                                />
                                 <div class="invalid-tooltip">
                                     Mot de passe non conforme
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <button class="btn btn-auth" routerLink="/more" type="submit"> Création de compte </button>
+                                <button class="btn btn-auth" type="submit"> Création de compte </button>
                             </div>
                         </form>
 

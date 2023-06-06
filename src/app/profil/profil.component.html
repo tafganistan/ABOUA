@@ -41,7 +41,8 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <img src="../../assets/images/avatar.png" alt="illustration">
+                            <img *ngIf="!profil.avatar" src="../../assets/images/avatar.png" alt="illustration">
+                            <img *ngIf="profil.avatar" [src]="apiUrl + '/' + profilPath + '/' + profil.avatar" alt="illustration">
                         </div>
                         <div class="col-3 div div-notifs">
                             <div class="row">
@@ -52,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-12 container-profil-row_white">
-                    <h3> Prenoms + Nom </h3>
+                    <h3> {{ profil.nom_complet }} </h3>
                 </div>
                 <div class="col-12 container-profil-row_items">
                     <swiper [slidesPerView]="3" [spaceBetween]="10" [navigation]="true" class="animate__animated animate__fadeIn">
@@ -76,7 +77,7 @@
             <div class="container-view-row container-view-row-mes-cours row">
 
                 <!-- COURS DE TRADING À AFFICHER SI LA FORMATION EST ACHETÉE -->
-                <div class="col-lg-3 col-md-12 serviceBoxContainer">
+                <div *ngIf="isActive == 1" class="col-lg-3 col-md-12 serviceBoxContainer">
                     <a href="trading/cours">
                         <div class="serviceBox">
                             <h5> <span class="serviceNumberTitile">01</span> Trading </h5>
@@ -84,14 +85,14 @@
                                 The customer provides us with detailed project-related information, gathered from supporting documents.
                             </p>
                             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar" style="width: 25%">25%</div>
+                                <div class="progress-bar" style="width: 0%">0%</div>
                             </div>
                         </div>
                     </a>
                 </div>
 
                 <!-- COURS DE COACHING À AFFICHER SI LA FORMATION EST ACHETÉE -->
-                <div class="col-lg-3 col-md-12 serviceBoxContainer">
+                <div *ngIf="isActive == 0" class="col-lg-3 col-md-12 serviceBoxContainer">
                     <div class="serviceBox">
                         <h5> <span class="serviceNumberTitile">02</span> Coaching </h5>
                         <p class="text-service">
@@ -104,7 +105,7 @@
                 </div>
 
                 <!-- MESSAGE À AFFICHER SI LA FORMATION N'EST PAS ACHETÉE -->
-                <p> Vous n'avez aucune formation <a href="formations"> ( veuillez acheter une formation ) </a> </p>
+                <p *ngIf="isActive == 0"> Vous n'avez aucune formation <a href="formations"> ( veuillez acheter une formation ) </a> </p>
             </div>
             <!-- CONTAINER VIEW LES FORUMS -->
             <div class="container-view-row container-view-row-forums row">
@@ -160,7 +161,7 @@
                     </ng-template>
                 </swiper>
                 <!-- MESSAGE À AFFICHER SI LA FORMATION N'EST PAS ACHETÉE -->
-                <p> Vous ne pouvez pas accéder aux forums <a href="formations"> ( veuillez acheter une formation ) </a> </p>
+                <p *ngIf="isActive == 1"> Vous ne pouvez pas accéder aux forums <a href="formations"> ( veuillez acheter une formation ) </a> </p>
             </div>
             <!-- CONTAINER VIEW PARAMÈTRES -->
             <div class="container-view-row container-view-row-parametres row">
@@ -170,10 +171,15 @@
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
-                                        <div class="row">
-                                            <input type="text" class="form-control" placeholder="Nom complet">
-                                            <button class="btn btn-edit"> Modifier </button>
-                                        </div>
+                                        <form  [formGroup]="nameForm" (ngSubmit)="submitUpdateProfilName()">
+                                            <div class="row">
+                                                <input type="text" class="form-control" placeholder="Nom complet"
+                                                formControlName="nom_complet" 
+                                                name="nom_complet"
+                                                />
+                                                <button class="btn btn-edit"> Modifier </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                         </div>
@@ -183,129 +189,5 @@
                         <div class="col-lg-3 col-md-12 serviceBoxContainer">
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
-                                        <div class="row">
-                                            <input type="number" class="form-control" placeholder="Numéro de téléphone">
-                                            <button class="btn btn-edit"> Modifier </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </ng-template>
-                    <!-- MODIFIER LE MOT PASSE -->
-                    <ng-template swiperSlide>
-                        <div class="col-lg-3 col-md-12 serviceBoxContainer">
-                                <div class="serviceBox">
-                                    <div class="input-group mb-3">
-                                        <div class="row">
-                                            <input type="password" class="form-control" placeholder="Nouveau mot de passe">
-                                            <button class="btn btn-edit"> Modifier </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </ng-template>
-                    <!-- CONFIRMATION DU MOT DE PASSE -->
-                    <ng-template swiperSlide>
-                        <div class="col-lg-3 col-md-12 serviceBoxContainer">
-                                <div class="serviceBox">
-                                    <div class="input-group mb-3">
-                                        <div class="row">
-                                            <input type="password" class="form-control" placeholder="Confirmation">
-                                            <button class="btn btn-edit"> Modifier </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </ng-template>
-                    <!-- MODIFIER LA PHOTO DE PROFIL -->
-                    <ng-template swiperSlide>
-                        <div class="col-lg-3 col-md-12 serviceBoxContainer">
-                                <div class="serviceBox">
-                                    <div class="input-group mb-3">
-                                        <div class="row">
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file"/>
-                                            <button class="btn btn-edit" type="submit"> Modifier la photo de profil </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </ng-template>
-                </swiper>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- COUVERTURE DU MENU -->
-<div class="container-menus">
-    <!-- MENU NORMAL -->
-    <div class="menu-items menu-blc animate__animated animate__fadeInLeft">
-        <div class="row">
-            <h3> MENU </h3>
-            <div class="item"> <a href="/home">ACCUEIL</a> </div>
-            <div class="item"> <a href="/about" target="_blank">À PROPOS</a> </div>
-            <div class="item"> <a href="/formations">NOS FORMATIONS</a> </div>
-            <div class="item item-close item-close-menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- COUVERTURE DE SESSION -->
-<div class="container-session animate__animated">
-    <!-- MENU PROFIL -->
-    <div class="menu-items session-blc animate__animated animate__fadeInRight">
-        <div class="row">
-            <h3> SESSION </h3>
-            <div class="item"> <a href="/profil">PROFIL </a>  </div>
-            <div class="item"> <a href="/authentification">DÉCONNEXION</a> </div>
-            <div class="item item-close item-close-session">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- POPUP CONFIRMATION DE MODIFICATION -->
-<div class="cont-popup cont-notifications-popup animate__animated">
-    <div class="datas-popup animate__animated animate__zoomIn">
-        <div class="request-bloc">
-            <h3> Notifications </h3>
-        </div>
-        <p class="notifs-bloc">
-            <a href="">Nouveau coaching programmé</a>
-        </p>
-        <p class="notifs-bloc">
-            <a href="">Vous avez reçu un screenshot</a>
-        </p>
-        <p class="notifs-bloc">
-            <a href="">Passer au cours suivant</a>
-        </p>
-    </div>
-</div>
-
-<!-- POPUP CONFIRMATION DE MODIFICATION -->
-<div class="cont-popup cont-confirmation-popup animate__animated">
-    <div class="datas-popup animate__animated animate__zoomIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-x-circle close-popup-edit" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
-        <div class="request-bloc">
-            <h3> Voulez-vous effectué la modification ? </h3>
-            <button class="btn btn-accept"> Oui </button>
-        </div>
-        <p class="success-message">
-            Modification effectuée avec succès
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-            </svg>
-        </p>
-    </div>
-</div>
+                                        <form  [formGroup]="phoneForm" (ngSubmit)="submitUpdateProfilPhone()">
+                    

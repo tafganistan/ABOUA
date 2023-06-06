@@ -4,6 +4,12 @@ declare var $: any;
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper';
+import { TokenStorageService } from '../services/token-storage.service';
+import { first } from 'rxjs';
+import { ProfilService } from '../services/profil.service';
+import  {environment}  from '../config/env/config';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MoreUserInfoService } from '../services/more-user-info.service';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
 
 @Component({
@@ -14,7 +20,41 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
 })
 export class ProfilComponent implements OnInit {
 
-  constructor (private router: Router) {}
+  // For profil 
+  profil: any={}
+  profilPath: string = ''
+  apiUrl = environment.apiUrl
+
+  // For setting
+  nameForm!: FormGroup;
+  phoneForm!: FormGroup;
+  passwordForm!: FormGroup;
+  file: any = null;
+
+  // For Activation
+  isActive = 1
+
+  constructor (
+    private router: Router,
+    private localStorageService: TokenStorageService,
+    private profils: ProfilService,
+    private moreUserInfoService: MoreUserInfoService,
+
+    public fb: FormBuilder,
+    ) {
+      this.nameForm = this.fb.group({
+        nom_complet:['',Validators.required],
+        the_user_id: this.localStorageService.getUser(),
+      });
+      this.phoneForm = this.fb.group({
+        telephone:['',Validators.required],
+        the_user_id: this.localStorageService.getUser(),
+      });
+      this.passwordForm = this.fb.group({
+        password:['',Validators.required],
+        the_user_id: this.localStorageService.getUser(),
+      });
+    }
 
   ngOnInit(): void {
     $(document).ready(function () {
@@ -73,20 +113,20 @@ export class ProfilComponent implements OnInit {
       });
 
       //POPUP MODIFICATION INPUT
-      $(".btn-edit").click(function() {
-        $(".cont-confirmation-popup").css("display", "flex");
-        $(".request-bloc").css("display", "block");
-        $(".success-message").css("display", "none");
-      });
-      $(".btn-accept").click(function() {
-        $(".btn-accept").css("display", "none");
-        $(".success-message").css("display", "block");
-      });
-      $(".close-popup-edit").click(function() {
-        $(".cont-confirmation-popup").css("display", "");
-        $(".btn-accept").css("display", "");
-        $(".success-message").css("display", "");
-      });
+      // $(".btn-edit").click(function() {
+      //   $(".cont-confirmation-popup").css("display", "flex");
+      //   $(".request-bloc").css("display", "block");
+      //   $(".success-message").css("display", "none");
+      // });
+      // $(".btn-accept").click(function() {
+      //   $(".btn-accept").css("display", "none");
+      //   $(".success-message").css("display", "block");
+      // });
+      // $(".close-popup-edit").click(function() {
+      //   $(".cont-confirmation-popup").css("display", "");
+      //   $(".btn-accept").css("display", "");
+      //   $(".success-message").css("display", "");
+      // });
 
       //POPUP NOTIFICATIONS
       $(".div-notifs").click(function() {
@@ -96,6 +136,94 @@ export class ProfilComponent implements OnInit {
         $(".cont-notifications-popup").css("display", "none");
       });
     })
+
+    this.GetProfilInfol(this.localStorageService.getUser())
+  }
+
+
+  signout() {
+    this.localStorageService.signOut()
+    this.router.navigateByUrl('/authentification')
+  }
+
+  GetProfilInfol(userId:any) {
+    // console.log(userId);
+    this.profils.getUserProfilInfo(userId)
+      .pipe(first())
+        .subscribe((response:any) => {
+            this.profil = response.userInfos
+            this.profilPath = response.userAvatarPath
+        })  
+        
+  }
+
+  submitUpdateProfilName() {
+    this.moreUserInfoService.PostMoreInfo(this.nameForm.value)
+      .pipe(first())
+      .subscribe(
+        (response) =>{  
+          if (response.code == 200 ) {
+            this.nameForm.reset()
+            this.GetProfilInfol(this.localStorageService.getUser())
+          } else {
+            console.log(response.error);
+          }
+    
+      })
+     ;  
+  }
+  submitUpdateProfilPhone() {
+    this.moreUserInfoService.PostMoreInfo(this.phoneForm.value)
+      .pipe(first())
+      .subscribe(
+        (response) =>{  
+          if (response.code == 200 ) {
+            this.phoneForm.reset()
+            this.GetProfilInfol(this.localStorageService.getUser())
+          } else {
+            console.log(response.error);
+          }
+    
+      })
+     ;  
+  }
+  submitUpdateProfilPassword() {
+    this.moreUserInfoService.PostMoreInfo(this.passwordForm.value)
+      .pipe(first())
+      .subscribe(
+        (response) =>{  
+          if (response.code == 200 ) {
+            this.passwordForm.reset()
+            this.GetProfilInfol(this.localStorageService.getUser())
+          } else {
+            console.log(response.error);
+          }
+    
+      })
+     ;  
+  }
+  onFileSelected(event: any) {
+    this.file = event.target.files[0]
+    
+  }
+  submitUpdateProfilAvatar() {
+    let formData = new FormData();
+    formData.append('avatar', this.file)
+    console.log(formData);
+    
+    this.moreUserInfoService.PostMoreInfo(formData)
+      .pipe(first())
+      .subscribe(
+        (response) =>{  
+          if (response.code == 200 ) {
+            this.file = null
+            this.GetProfilInfol(this.localStorageService.getUser())
+          } else {
+            console.log(response.error);
+          }
+    
+      })
+     ;  
   }
 
 }

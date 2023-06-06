@@ -11,16 +11,20 @@
                     <div class="row">
                         <h2> Plus qu'une dernière étape </h2>
                         <p> Comment avez-vous connu VISION_MARKET ? </p>
-                        <form class="row needs-validation">
-                            <select class="form-select" aria-label="Default select example" required>
-                                <option selected>Selectionnez une option</option>
-                                <option value="1">De bouche à oreille</option>
-                                <option value="2">Par une connaissance</option>
-                                <option value="3">Sur les réseaux sociaux</option>
-                                <option value="4">Sur internet</option>
+                        <form class="row needs-validation" [formGroup]="moreInfoForm" (ngSubmit)="submitmoreInfoForm()">
+                            <select class="form-select" aria-label="Default select example" required
+                            formControlName="moreInfo" 
+                            name="moreInfo"
+                            >
+                                <option value="Autre">Selectionnez une option</option>
+                                <option >De bouche à oreille</option>
+                                <option >Par une connaissance</option>
+                                <option >Sur les réseaux sociaux</option>
+                                <option >Sur internet</option>
+                                <option >Autre</option>
                             </select>
                             <div class="input-group mb-3">
-                                <button class="btn btn-auth" routerLink="/profil"> Accédez au profil </button>
+                                <button class="btn btn-auth"> Accédez au profil </button>
                             </div>
                         </form>
                     </div>

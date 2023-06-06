@@ -16,13 +16,14 @@ import { CoursTradingComponent } from './cours-trading/cours-trading.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { MoreInformationsComponent } from './more-informations/more-informations.component';
+import { AuthGuard } from './_helpers/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'formations', component: FormationsComponent},
   { path: 'formations/liste', component: FormationsListComponent },
-  { path: 'profil', component: ProfilComponent },
+  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard]},
   { path: 'about', component: AboutComponent },
   { path: 'authentification', component: AuthentificationComponent },
   { path: 'recovery', component: RecoverPasswordComponent },

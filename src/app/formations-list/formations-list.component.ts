@@ -4,6 +4,7 @@ declare var $: any;
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper';
+import { TokenStorageService } from '../services/token-storage.service';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
 
 @Component({
@@ -13,7 +14,11 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
   encapsulation: ViewEncapsulation.None
 })
 export class FormationsListComponent implements OnInit {
-  constructor (private router: Router) {}
+  token:any 
+  constructor (
+    private router: Router,
+    private localStorageService: TokenStorageService,
+    ) {}
 
   ngOnInit(): void {
     $(document).ready(function () {
@@ -121,5 +126,13 @@ export class FormationsListComponent implements OnInit {
       });
 
     });
+
+    this.token = this.localStorageService.getUser()
   }
+
+  signout() {
+    this.localStorageService.signOut()
+    this.router.navigateByUrl('/authentification')
+  }
+
 }

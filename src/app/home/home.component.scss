@@ -118,7 +118,7 @@
     height: $full-vh;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     display: none;
     .menu-items {
         cursor: pointer;
@@ -174,7 +174,7 @@
     height: $full-vh;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     display: none;
     .menu-items {
         cursor: pointer;
@@ -365,8 +365,8 @@
         margin-left: 40%;
         .conditionBox {
             display: flex;
-            justify-content: start;
-            align-items: start;
+            justify-content: flex-start;
+            align-items: flex-start;
             text-align: left;
             padding-left: 25px;
             margin-top: 20px;

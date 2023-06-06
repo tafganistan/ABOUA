@@ -80,7 +80,7 @@
     height: $full-vh;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     display: none;
     .menu-items {
         cursor: pointer;
@@ -136,7 +136,7 @@
     height: $full-vh;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     display: none;
     .menu-items {
         cursor: pointer;
