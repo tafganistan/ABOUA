@@ -116,6 +116,34 @@ export class FormationsListComponent implements OnInit {
         $(".view-3").css("display", "flex");
         $(".view-3").fadeIn(200);
       });
+      $(".views-4").click(function() {
+        $(".view-4").css("display", "flex");
+        $(".view-4").fadeIn(200);
+      });
+      $(".views-5").click(function() {
+        $(".view-5").css("display", "flex");
+        $(".view-5").fadeIn(200);
+      });
+      $(".views-6").click(function() {
+        $(".view-6").css("display", "flex");
+        $(".view-6").fadeIn(200);
+      });
+      $(".views-7").click(function() {
+        $(".view-7").css("display", "flex");
+        $(".view-7").fadeIn(200);
+      });
+      $(".views-8").click(function() {
+        $(".view-8").css("display", "flex");
+        $(".view-8").fadeIn(200);
+      });
+      $(".views-9").click(function() {
+        $(".view-9").css("display", "flex");
+        $(".view-9").fadeIn(200);
+      });
+      $(".views-10").click(function() {
+        $(".view-10").css("display", "flex");
+        $(".view-10").fadeIn(200);
+      });
       $(".close-view").click(function() {
         $(".container-popup-cours-view").fadeOut(200);
       });

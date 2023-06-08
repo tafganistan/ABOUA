@@ -506,6 +506,54 @@
     }
 }
 
+.notifications-popup-date {
+    display: flex;
+    .datas-popup {
+        width: 60%;
+        .row {
+            width: $full-percent;
+            height: $full-percent;
+            display: flex;
+            justify-content: start;
+            overflow: hidden;
+            overflow-y: auto;
+            div {
+                background: $white;
+                color: #00172E;
+                font-size: $size-small;
+            }
+            .end {
+                text-align: end;
+            }
+            .teacher-comment {
+                text-align: center;
+            }
+            img {
+                width: $full-percent;
+                height: 76%;
+                margin-top: 2vh;
+                margin-bottom: 1vh;
+            }
+            .btns-interaction {
+                background: transparent;
+                text-align: center;
+                margin-top: 3vh;
+                .btn {
+                    padding: 0;
+                    background: $white;
+                    margin: 0;
+                    margin-right: 10px;
+                    width: 250px;
+                    height: 40px;
+                    border-radius: 5px;
+                    font-size: $size-small;
+                    font-family: $family-bold;
+                }
+            }
+        }
+    }
+}
+
 
 /*/ ---------------------------------------------------------- RESPONSIVE DESIGN (MAX WIDTH: 1200PX) -----------------------------------------------------------/*/
 @media screen and (max-width: 1200px) {
