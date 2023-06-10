@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-3 div div-notifs">
                             <div class="row">
-                                <h6>3</h6>
+                                <h6>0</h6>
                                 <p> Notification(s) </p>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- COURS DE COACHING À AFFICHER SI LA FORMATION EST ACHETÉE -->
-                <div *ngIf="isActive == 0" class="col-lg-3 col-md-12 serviceBoxContainer">
+                <div *ngIf="isActive == 1" class="col-lg-3 col-md-12 serviceBoxContainer">
                     <div class="serviceBox">
                         <h5> <span class="serviceNumberTitile">02</span> Coaching </h5>
                         <p class="text-service">
@@ -161,7 +161,7 @@
                     </ng-template>
                 </swiper>
                 <!-- MESSAGE À AFFICHER SI LA FORMATION N'EST PAS ACHETÉE -->
-                <p *ngIf="isActive == 1"> Vous ne pouvez pas accéder aux forums <a href="formations"> ( veuillez acheter une formation ) </a> </p>
+                <p *ngIf="isActive == 0"> Vous ne pouvez pas accéder aux forums <a href="formations"> ( veuillez acheter une formation ) </a> </p>
             </div>
             <!-- CONTAINER VIEW PARAMÈTRES -->
             <div class="container-view-row container-view-row-parametres row">
@@ -190,4 +190,74 @@
                                 <div class="serviceBox">
                                     <div class="input-group mb-3">
                                         <form  [formGroup]="phoneForm" (ngSubmit)="submitUpdateProfilPhone()">
-                    
+                                            <div class="row">
+                                                <input type="text" class="form-control" placeholder="Telephone"
+                                                formControlName="telephone" 
+                                                name="telephone"
+                                                />
+                                                <button class="btn btn-edit"> Modifier </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </ng-template>
+                    <!-- MODIFIER LE NUMERO -->
+                    <ng-template swiperSlide>
+                        <div class="col-lg-3 col-md-12 serviceBoxContainer">
+                                <div class="serviceBox">
+                                    <div class="input-group mb-3">
+                                        <form  [formGroup]="passwordForm" (ngSubmit)="submitUpdateProfilPassword()">
+                                            <div class="row">
+                                                <input type="text" class="form-control" placeholder="Mot de passe"
+                                                formControlName="password" 
+                                                name="password"
+                                                />
+                                                <button class="btn btn-edit"> Modifier </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COUVERTURE DU MENU -->
+<div class="container-menus">
+    <!-- MENU NORMAL -->
+    <div class="menu-items menu-blc animate__animated animate__fadeInLeft">
+        <div class="row">
+            <h3> MENU </h3>
+            <div class="item"> <a href="/home">ACCUEIL</a> </div>
+            <div class="item"> <a href="/about" target="_blank">À PROPOS</a> </div>
+            <div class="item"> <a href="/formations">NOS FORMATIONS</a> </div>
+            <div class="item item-close item-close-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- COUVERTURE DE SESSION -->
+<div class="container-session animate__animated">
+    <!-- MENU PROFIL -->
+    <div class="menu-items session-blc animate__animated animate__fadeInRight">
+        <div class="row">
+            <h3> SESSION </h3>
+            <div class="item"> <a href="/profil">PROFIL </a>  </div>
+            <div class="item" (click)="signout()"> <a href="">DÉCONNEXION</a> </div>
+            <div class="item item-close item-close-session">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
