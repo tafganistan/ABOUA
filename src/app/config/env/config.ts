@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://127.0.0.1:3333',
+    apiUrl: 'https://mino-api.blooraid-consortium.com',
+    // apiUrl: 'http://127.0.0.1:3333',
 };
